@@ -46,21 +46,15 @@ int main()
 	//attach 100x100 picture that moves 
 	Image spongebob {Point{0,0}, "bob.jpg"};  //attach pic at 0,0, wait for button
 	win.attach(spongebob);
-	win.wait_for_button();
 
 	//start moving
 	for (int i = 0; i < 8; ++i) 				//??does some weird things??
 	{
         for (int j = 0; j < 8; ++j) 
-        {
+         {
+	    win.wait_for_button();
             spongebob.move(100, 0);
-            win.wait_for_button();
+         }
+        spongebob.move(-800, 100);
         }
-        spongebob.move(-700, 100);
-        win.wait_for_button();
-    }
-
-    win.wait_for_button();
-
-
 }
